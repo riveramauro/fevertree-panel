@@ -1,9 +1,9 @@
-import './App.css';
+import '../App.css';
 
 function Drinks() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header>
         <h1>Serve Those Drinks!</h1>
         <p>
           Edit <code>src/App.js</code> and save to reload.

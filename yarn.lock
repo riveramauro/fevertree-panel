@@ -5677,11 +5677,14 @@ __metadata:
     "@testing-library/jest-dom": ^5.14.1
     "@testing-library/react": ^12.0.0
     "@testing-library/user-event": ^13.2.1
+    autoprefixer: ^10.4.4
     eslint-config-react-app: ^7.0.0
+    postcss: ^8.4.12
     react: ^18.0.0
     react-dom: ^18.0.0
     react-router-dom: 6
     react-scripts: 5.0.0
+    tailwindcss: ^3.0.23
     web-vitals: ^2.1.0
   languageName: unknown
   linkType: soft
@@ -9559,7 +9562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.3.5, postcss@npm:^8.4.4, postcss@npm:^8.4.6, postcss@npm:^8.4.7":
+"postcss@npm:^8.3.5, postcss@npm:^8.4.12, postcss@npm:^8.4.4, postcss@npm:^8.4.6, postcss@npm:^8.4.7":
   version: 8.4.12
   resolution: "postcss@npm:8.4.12"
   dependencies:
@@ -11087,7 +11090,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.0.2":
+"tailwindcss@npm:^3.0.2, tailwindcss@npm:^3.0.23":
   version: 3.0.23
   resolution: "tailwindcss@npm:3.0.23"
   dependencies:
