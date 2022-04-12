@@ -27,14 +27,14 @@ function App() {
       setFullScreenStatus(status);
     }
 
-    useEffect(() => {
-    const isFull = document.fullscreenElement;
-    if(!isFull) {
-      setFullScreenStatus(false)
-    } else {
-      setFullScreenStatus(true)
-    }
-  },[])
+  //   useEffect(() => {
+  //   const isFull = document.fullscreenElement;
+  //   if(!isFull) {
+  //     setFullScreenStatus(false)
+  //   } else {
+  //     setFullScreenStatus(true)
+  //   }
+  // },[])
 
   return (
     <>

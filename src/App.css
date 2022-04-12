@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Agenda-Medium';
+  src: url('./fonts/Agenda-Medium.eot');
+  src: url('./fonts/Agenda-Medium.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/Agenda-Medium.woff2') format('woff2'),
+       url('./fonts/Agenda-Medium.woff') format('woff'),
+       url('./fonts/Agenda-Medium.svg#Agenda') format('svg');
+}
+
+@font-face {
+  font-family: 'Agenda-Light';
+  src: url('./fonts/Agenda-Light.eot');
+  src: url('./fonts/Agenda-Light.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/Agenda-Light.woff2') format('woff2'),
+       url('./fonts/Agenda-Light.woff') format('woff'),
+       url('./fonts/Agenda-Light.svg#Agenda') format('svg');
+}
+
+.font-agenda-medium {
+  font-family: 'Agenda-Medium' ,Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+.font-agenda-light {
+  font-family: 'Agenda-Light' ,Arial, Helvetica, sans-serif;
+  font-weight: 100;
+}
+
 .App {
   text-align: center;
   width: 1920px;
