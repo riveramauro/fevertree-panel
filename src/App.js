@@ -2,7 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navigation from './components/Navigation';
 import Home from "./pages/Home";
-import Drinks from "./pages/Drinks";
+import SparklinPink from "./pages/SparklinPink";
+import EasyCocktails from "./pages/EasyCocktails";
 
 import './App.css';
 
@@ -45,7 +46,8 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="drinks" element={<Drinks />} />
+          <Route path="SparklinPink" element={<SparklinPink />} />
+          <Route path="EasyCocktails" element={<EasyCocktails />} />
         </Routes>
       </div>
     }
