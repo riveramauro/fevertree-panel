@@ -2,8 +2,11 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navigation from './components/Navigation';
 import Home from "./pages/Home";
-import SparklinPink from "./pages/SparklinPink";
+import SparklingPink from "./pages/SparklingPink";
+import SparklingLime from "./pages/SparklingLime";
+import PremiumSoda from "./pages/PremiumSoda";
 import EasyCocktails from "./pages/EasyCocktails";
+import Sustainability from "./pages/Sustainability";
 
 import './App.css';
 
@@ -46,8 +49,11 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="SparklinPink" element={<SparklinPink />} />
+          <Route path="SparklingPink" element={<SparklingPink />} />
+          <Route path="SparklingLime" element={<SparklingLime />} />
+          <Route path="PremiumSoda" element={<PremiumSoda />} />
           <Route path="EasyCocktails" element={<EasyCocktails />} />
+          <Route path="Sustainability" element={<Sustainability />} />
         </Routes>
       </div>
     }
