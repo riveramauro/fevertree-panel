@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navigation from './components/Navigation';
+
+// Import page as a module before adding to the `Routes` below.
 import Home from "./pages/Home";
 import SparklingPink from "./pages/SparklingPink";
 import SparklingLime from "./pages/SparklingLime";
@@ -48,6 +50,7 @@ function App() {
       <div className="App">
         <Navigation />
         <Routes>
+          {/* Add pages here */}
           <Route path="/" element={<Home />} />
           <Route path="SparklingPink" element={<SparklingPink />} />
           <Route path="SparklingLime" element={<SparklingLime />} />
