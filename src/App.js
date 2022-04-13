@@ -6,6 +6,7 @@ import SparklinPink from "./pages/SparklinPink";
 import EasyCocktails from "./pages/EasyCocktails";
 
 import './App.css';
+import 'animate.css'
 
 export function SplashScreen({updateStatusFullScreen}) {
   const triggetFullScreen = () => {

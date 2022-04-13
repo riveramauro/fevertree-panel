@@ -7,7 +7,7 @@ function Slide({children, backgroundImage}) {
   }
 
   return (
-    <div style={containerCss} className="h-full flex justify-center align-middle relative overflow-hidden">
+    <div style={containerCss} className="h-full flex justify-center align-middle relative overflow-hidden animate__animated animate__fadeIn animate__slow">
       {children}
     </div>
   );
