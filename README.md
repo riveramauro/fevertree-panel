@@ -2,7 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Repo at `git@github.com:riveramauro/fevertree-panel.git`
+Repo at:
+- https://github.com/riveramauro/fevertree-panel
+- `git@github.com:riveramauro/fevertree-panel.git` 
 
 ## Before you beging
 **Make sure you have `Yarn` installed.**
