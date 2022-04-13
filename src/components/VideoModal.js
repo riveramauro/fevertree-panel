@@ -15,7 +15,7 @@ export function VideoModal({ video = '', visible, updateVisibility }) {
         onClick={() => updateVisibility(false)}
       >
         <div className="h-5/6 inline-block mt-20">
-          <video className="h-full" src={video} muted autoPlay loop></video>
+          <video className="h-full" src={video} muted autoPlay onEnded={() => updateVisibility(false)}></video>
         </div>
       </div>
       : '')
