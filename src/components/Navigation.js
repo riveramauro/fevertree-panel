@@ -8,17 +8,17 @@ const NavigationLiks = [
     color: '#00a7d9'
   },
   {
-    url: '/SparklinPink',
+    url: '/SparklingPink',
     name: 'Sparkling\nPINK GRAPEFRUIT',
     color: '#e75f70'
   },
   {
-    url: '',
+    url: '/SparklingLime',
     name: 'Sparkling\nLIME & YUZU',
     color: '#56a045'
   },
   {
-    url: '',
+    url: '/PremiumSoda',
     name: 'PREMIUM\nCLUB SODA',
     color: '#b155af'
   },
@@ -28,7 +28,7 @@ const NavigationLiks = [
     color: '#52b99e'
   },
   {
-    url: '',
+    url: '/Sustainability',
     name: 'SUSTAINABILITY',
     color: '#eac940'
   },

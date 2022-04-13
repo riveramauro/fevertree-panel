@@ -1,9 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navigation from './components/Navigation';
+
+// Import page as a module before adding to the `Routes` below.
 import Home from "./pages/Home";
-import SparklinPink from "./pages/SparklinPink";
+import SparklingPink from "./pages/SparklingPink";
+import SparklingLime from "./pages/SparklingLime";
+import PremiumSoda from "./pages/PremiumSoda";
 import EasyCocktails from "./pages/EasyCocktails";
+import Sustainability from "./pages/Sustainability";
 
 import './App.css';
 import 'animate.css'
@@ -76,9 +81,13 @@ function App() {
       <div className="App">
         <Navigation />
         <Routes>
+          {/* Add pages here */}
           <Route path="/" element={<Home />} />
-          <Route path="SparklinPink" element={<SparklinPink />} />
+          <Route path="SparklingPink" element={<SparklingPink />} />
+          <Route path="SparklingLime" element={<SparklingLime />} />
+          <Route path="PremiumSoda" element={<PremiumSoda />} />
           <Route path="EasyCocktails" element={<EasyCocktails />} />
+          <Route path="Sustainability" element={<Sustainability />} />
         </Routes>
         <div className="absolute w-full h-full bg-slate-400 bg-opacity-50">Splash</div>
       </div>
