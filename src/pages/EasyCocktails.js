@@ -19,14 +19,31 @@ function EasyCocktails() {
   return (
     <Slide backgroundImage={bkImg}>
       <div
-        className="w-[480px] h-[410px] bg-purple-400 bg-opacity-50 absolute cursor-pointer" 
+        className="w-[480px] h-[410px] absolute cursor-pointer" 
         style={{ bottom: 0, left: 0 }}
+        onClick={() => {
+          setViewModal(true);
+          setModalVideo(limeVideo);
+        }}
+        >
+      </div>
+      <div
+        className="w-[480px] h-[410px] absolute cursor-pointer" 
+        style={{ top: 0, left: 478 }}
         onClick={() => {
           setViewModal(true);
           setModalVideo(easyVideo);
         }}
         >
-
+      </div>
+      <div
+        className="w-[480px] h-[410px] absolute cursor-pointer" 
+        style={{ bottom: 0, left: 960 }}
+        onClick={() => {
+          setViewModal(true);
+          setModalVideo(grapefruitVideo);
+        }}
+        >
       </div>
       <VideoModal visible={viewModal} video={modalVideo} updateVisibility={updateVisibility} />
     </Slide>
