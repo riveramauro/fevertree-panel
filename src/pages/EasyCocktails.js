@@ -1,16 +1,35 @@
+import { useState } from "react";
+import Slide from "../components/Slide";
+import VideoModal from "../components/VideoModal";
+
 import bkImg from "../images/easy-cocktails.png";
 
-const containerCss = {
-  backgroundImage: `url(${bkImg})`,
-  backgroundPosition: 'center center',
-  backgroundSize: 'cover'
-}
+import limeVideo from "../videos/EasyCocktails/3WaysToLime&Yuzu_FINAL.mp4";
+import grapefruitVideo from "../videos/EasyCocktails/3WaysToSPG_FINAL.mp4";
+import easyVideo from "../videos/EasyCocktails/Easy123.mp4";
 
 function EasyCocktails() {
+  const [viewModal, setViewModal] = useState(false)
+  const [modalVideo, setModalVideo] = useState('')
+
+  const updateVisibility = (visibility) => {
+    setViewModal(visibility);
+  }
+
   return (
-    <div style={containerCss} className="h-full flex justify-center align-middle relative overflow-hidden">
-      {/* <img src={bkImg} alt="" /> */}
-    </div>
+    <Slide backgroundImage={bkImg}>
+      <div
+        className="w-[480px] h-[410px] bg-purple-400 bg-opacity-50 absolute cursor-pointer" 
+        style={{ bottom: 0, left: 0 }}
+        onClick={() => {
+          setViewModal(true);
+          setModalVideo(easyVideo);
+        }}
+        >
+
+      </div>
+      <VideoModal visible={viewModal} video={modalVideo} updateVisibility={updateVisibility} />
+    </Slide>
   );
 }
 

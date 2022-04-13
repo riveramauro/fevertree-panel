@@ -1,17 +1,12 @@
 import bkImg from "../images/sparklin_pink_grapefruit.png";
 import { Link } from "react-router-dom";
-
-const containerCss = {
-  backgroundImage: `url(${bkImg})`,
-  backgroundPosition: 'center center',
-  backgroundSize: 'cover'
-}
+import Slide from "../components/Slide";
 
 function SparklinPink() {
   return (
-    <div style={containerCss} className="h-full flex justify-center align-middle relative overflow-hidden">
+    <Slide backgroundImage={bkImg}>
       <Link to="/EasyCocktails" className="block w-full h-full" />
-    </div>
+    </Slide>
   );
 }
 

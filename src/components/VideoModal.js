@@ -21,3 +21,5 @@ export function VideoModal({ video = '', visible, updateVisibility }) {
       : '')
   );
 }
+
+export default VideoModal;

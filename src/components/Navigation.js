@@ -50,6 +50,7 @@ function Navigation() {
       if(nav.url === elementPath) {
         setActiveColor(nav.color)
       }
+      return null
     })
   }
 
