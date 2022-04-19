@@ -11,7 +11,7 @@ export function VideoModal({ video = '', visible, updateVisibility }) {
   return (
     (visibility ?
       <div
-        className="w-full h-full absolute top-0 left-0 bg-slate-900 bg-opacity-75"
+        className="w-full h-full absolute top-0 left-0 bg-slate-900 bg-opacity-75 animate__animated animate__fadeIn animate__fast"
         onClick={() => updateVisibility(false)}
       >
         <div className="h-5/6 inline-block mt-20">

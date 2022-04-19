@@ -11,6 +11,7 @@ import EasyCocktails from "./pages/EasyCocktails";
 import Sustainability from "./pages/Sustainability";
 
 import './App.css';
+import 'animate.css'
 
 export function SplashScreen({updateStatusFullScreen}) {
   const triggetFullScreen = () => {

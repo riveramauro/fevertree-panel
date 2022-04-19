@@ -210,12 +210,12 @@ function Home() {
   }
   
   return (
-    <div className="h-full flex justify-center align-middle relative">
+    <div className="h-full flex justify-center align-middle relative animate__animated animate__fadeIn animate__slow">
       <img src={map} alt="Map" style={{width: '1640px'}} />
       {Ingredients.map((ingredient) => (
         <div
           key={ingredient.name}
-          className="absolute cursor-pointer"
+          className="absolute cursor-pointer animate__animated animate__pulse animate__delay-2s"
           style={ingredient.css}
           onClick={() => {
             setViewModal(true);
