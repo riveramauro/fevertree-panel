@@ -86,7 +86,7 @@ const Ingredients = [
       top: '593px',
       left: '378px'
     },
-    video: null,
+    video: KolaVideo,
   },
   {
     link: '',
@@ -173,7 +173,8 @@ const Ingredients = [
       width: '133px',
       top: '745px',
       left: '1120px'
-    }
+    },
+    video: KolaVideo,
   },
   {
     link: '',
