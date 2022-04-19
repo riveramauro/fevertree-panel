@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navigation from './components/Navigation';
 
+import idleBanner from "./images/idleBanner.png";
+
 // Import page as a module before adding to the `Routes` below.
 import Home from "./pages/Home";
 import SparklingPink from "./pages/SparklingPink";
@@ -13,7 +15,7 @@ import Sustainability from "./pages/Sustainability";
 import './App.css';
 import 'animate.css'
 
-export function SplashScreen({updateStatusFullScreen}) {
+function SplashScreen({updateStatusFullScreen}) {
   const triggetFullScreen = () => {
     document.documentElement.requestFullscreen().then(() => {
       updateStatusFullScreen(true);
@@ -43,33 +45,34 @@ function App() {
   //   }
   // },[])
 
-  const inactivityTimer = () => {
-    let timer;
+  const [idleStatus, setIdleStatus] = useState(false);
 
-    const resetTimer = () => {
-      console.log('hello');
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        console.log('tick');
-      }, 3000);
-      console.log(timer);
+  const idleListener = () => {
+    let timer = null;
+    window.onload = resetTimer;
+    window.onmousemove = resetTimer;
+    window.onmousedown = resetTimer;  // catches touchscreen presses as well      
+    window.ontouchstart = resetTimer; // catches touchscreen swipes as well      
+    window.ontouchmove = resetTimer;  // required by some devices 
+    window.onclick = resetTimer;      // catches touchpad clicks as well
+    window.onkeydown = resetTimer;   
+    window.addEventListener('scroll', resetTimer, true); // improved; see comments
+
+    function updateIdle() {
+        // your function for too long inactivity goes here
+        setIdleStatus(true);
+        console.log('idle');
     }
 
-    resetTimer();
-
-    window.onmousemove = resetTimer();
-    window.onclick = resetTimer();
-
-    
-
+    function resetTimer() {
+        clearTimeout(timer);
+        setIdleStatus(false);
+        timer = setTimeout(updateIdle, 10000);  // time is in milliseconds
+    }
   }
 
   useEffect(() => {
-    inactivityTimer()
-  
-    // return () => {
-    //   null
-    // }
+    idleListener()
   }, [])
   
 
@@ -89,7 +92,11 @@ function App() {
           <Route path="EasyCocktails" element={<EasyCocktails />} />
           <Route path="Sustainability" element={<Sustainability />} />
         </Routes>
-        <div className="absolute w-full h-full bg-slate-400 bg-opacity-50">Splash</div>
+        {idleStatus ?
+          <div className="absolute w-full h-full animate__animated animate__fadeIn" style={{background: 'rgba(100, 100, 100, 0.5)'}}>
+            <img src={idleBanner} alt="Tap Screen to Discover More" />
+          </div>
+        : ''}
       </div>
     }
     </>

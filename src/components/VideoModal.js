@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function VideoModal({ video = '', visible, updateVisibility }) {
+export function VideoModal({ visible, video = '', updateVisibility }) {
 
   const [visibility, setVisibility] = useState(visible);
 
