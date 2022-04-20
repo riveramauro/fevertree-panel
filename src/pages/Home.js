@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { VideoModal } from "../components/VideoModal";
 
 import '../App.css';
@@ -42,7 +42,8 @@ const Ingredients = [
     css: {
       width: '112px',
       top: '330px',
-      left: '173px'
+      left: '173px',
+      animationDelay: 'calc(var(--animate-delay) * 1)'
     },
     video: BitterVideo,
   },
@@ -53,7 +54,8 @@ const Ingredients = [
     css: {
       width: '105px',
       top: '495px',
-      left: '173px'
+      left: '173px',
+      animationDelay: 'calc(var(--animate-delay) * 2)'
     },
     video: TahitianVideo,
   },
@@ -64,20 +66,10 @@ const Ingredients = [
     css: {
       width: '127px',
       top: '327px',
-      left: '383px'
+      left: '383px',
+      animationDelay: 'calc(var(--animate-delay) * 3)'
     },
     video: PinkVideo,
-  },
-  {
-    link: '',
-    name: 'Kola Nut',
-    image: kolaNut,
-    css: {
-      width: '70px',
-      top: '768px',
-      left: '433px'
-    },
-    video: KolaVideo,
   },
   {
     link: '',
@@ -86,31 +78,22 @@ const Ingredients = [
     css: {
       width: '124px',
       top: '593px',
-      left: '378px'
+      left: '378px',
+      animationDelay: 'calc(var(--animate-delay) * 4)'
     },
     video: KolaVideo,
   },
   {
     link: '',
-    name: 'Elderflower',
-    image: elderflower,
+    name: 'Kola Nut',
+    image: kolaNut,
     css: {
-      width: '102px',
-      top: '47px',
-      left: '855px'
+      width: '70px',
+      top: '768px',
+      left: '433px',
+      animationDelay: 'calc(var(--animate-delay) * 5)'
     },
-    video: ElderVideo,
-  },
-  {
-    link: '',
-    name: 'Rosemary',
-    image: rosemary,
-    css: {
-      width: '102px',
-      top: '258px',
-      left: '758px'
-    },
-    video: RosemaryVideo,
+    video: KolaVideo,
   },
   {
     link: '',
@@ -119,7 +102,8 @@ const Ingredients = [
     css: {
       width: '78px',
       top: '338px',
-      left: '678px'
+      left: '678px',
+      animationDelay: 'calc(var(--animate-delay) * 6)'
     },
     video: LemonVideo,
   },
@@ -130,9 +114,22 @@ const Ingredients = [
     css: {
       width: '151px',
       top: '463px',
-      left: '703px'
+      left: '703px',
+      animationDelay: 'calc(var(--animate-delay) * 7)'
     },
     video: GingerVideo,
+  },
+  {
+    link: '',
+    name: 'Rosemary',
+    image: rosemary,
+    css: {
+      width: '102px',
+      top: '258px',
+      left: '758px',
+      animationDelay: 'calc(var(--animate-delay) * 8)'
+    },
+    video: RosemaryVideo,
   },
   {
     link: '',
@@ -141,20 +138,22 @@ const Ingredients = [
     css: {
       width: '159px',
       top: '733px',
-      left: '820px'
+      left: '820px',
+      animationDelay: 'calc(var(--animate-delay) * 9)'
     },
     video: QuinineVideo,
   },
   {
     link: '',
-    name: 'Lemon Thyme',
-    image: lemonThyme,
+    name: 'Elderflower',
+    image: elderflower,
     css: {
-      width: '115px',
-      top: '230px',
-      left: '1104px'
+      width: '102px',
+      top: '47px',
+      left: '855px',
+      animationDelay: 'calc(var(--animate-delay) * 10)'
     },
-    video: ThymeVideo,
+    video: ElderVideo,
   },
   {
     link: '',
@@ -163,7 +162,32 @@ const Ingredients = [
     css: {
       width: '110px',
       top: '458px',
-      left: '974px'
+      left: '974px',
+      animationDelay: 'calc(var(--animate-delay) * 11)'
+    },
+    video: GingerVideo,
+  },
+  {
+    link: '',
+    name: 'Lemon Thyme',
+    image: lemonThyme,
+    css: {
+      width: '115px',
+      top: '230px',
+      left: '1104px',
+      animationDelay: 'calc(var(--animate-delay) * 12)'
+    },
+    video: ThymeVideo,
+  },
+  {
+    link: '',
+    name: 'Warm & Spicy Ginger',
+    image: spicyGinger,
+    css: {
+      width: '164px',
+      top: '325px',
+      left: '1194px',
+      animationDelay: 'calc(var(--animate-delay) * 13)'
     },
     video: GingerVideo,
   },
@@ -174,20 +198,10 @@ const Ingredients = [
     css: {
       width: '133px',
       top: '745px',
-      left: '1120px'
+      left: '1120px',
+      animationDelay: 'calc(var(--animate-delay) * 14)'
     },
     video: KolaVideo,
-  },
-  {
-    link: '',
-    name: 'Warm & Spicy Ginger',
-    image: spicyGinger,
-    css: {
-      width: '164px',
-      top: '325px',
-      left: '1194px'
-    },
-    video: GingerVideo,
   },
   {
     link: '',
@@ -196,7 +210,8 @@ const Ingredients = [
     css: {
       width: '127px',
       top: '411px',
-      left: '1604px'
+      left: '1604px',
+      animationDelay: 'calc(var(--animate-delay) * 15)'
     },
     video: TahitianVideo
   },
@@ -206,18 +221,25 @@ function Home() {
   
   const [viewModal, setViewModal] = useState(false)
   const [modalVideo, setModalVideo] = useState('')
+  const [intervalAnimation, setIntervalAnimation] = useState(true);
 
   const updateVisibility = (visibility) => {
     setViewModal(visibility);
   }
+
+  useEffect(() => {
+    setInterval(() => {
+      setIntervalAnimation(!intervalAnimation)
+    }, 16000);
+  }, [intervalAnimation]);
   
   return (
-    <div className="relative h-full flex justify-center align-middle relative animate__animated animate__fadeIn animate__slow">
+    <div className="relative h-full flex justify-center align-middle animate__animated animate__fadeIn animate__slow">
       <img src={map} alt="Map" style={{width: '1640px'}} />
       {Ingredients.map((ingredient) => (
         <div
           key={ingredient.name}
-          className="absolute cursor-pointer animate__animated animate__pulse animate__delay-2s"
+          className={`absolute cursor-pointer animate__animated ${(intervalAnimation) ? 'animate__pulse' : ''}`}
           style={ingredient.css}
           onClick={() => {
             setViewModal(true);
@@ -227,10 +249,10 @@ function Home() {
           <img src={ingredient.image} alt="" />
         </div>
       ))}
-      <VideoModal visible={viewModal} video={modalVideo} updateVisibility={updateVisibility} />
       <div className="absolute bottom-0 left-0">
         <img src={idleBanner} alt="Tap Screen to Discover More" />
       </div>
+      <VideoModal visible={viewModal} video={modalVideo} updateVisibility={updateVisibility} />
     </div>
   );
 }
