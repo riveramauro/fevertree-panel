@@ -3,6 +3,8 @@ import { VideoModal } from "../components/VideoModal";
 
 import '../App.css';
 
+import idleBanner from "../images/idleBanner.png";
+
 import map from "../images/map.svg";
 import bitterOrange from '../images/bitter-orange.svg';
 import greenGinger from '../images/green-ginger.svg';
@@ -210,7 +212,7 @@ function Home() {
   }
   
   return (
-    <div className="h-full flex justify-center align-middle relative animate__animated animate__fadeIn animate__slow">
+    <div className="relative h-full flex justify-center align-middle relative animate__animated animate__fadeIn animate__slow">
       <img src={map} alt="Map" style={{width: '1640px'}} />
       {Ingredients.map((ingredient) => (
         <div
@@ -226,6 +228,9 @@ function Home() {
         </div>
       ))}
       <VideoModal visible={viewModal} video={modalVideo} updateVisibility={updateVisibility} />
+      <div className="absolute bottom-0 left-0">
+        <img src={idleBanner} alt="Tap Screen to Discover More" />
+      </div>
     </div>
   );
 }

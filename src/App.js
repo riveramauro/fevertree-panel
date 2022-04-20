@@ -1,8 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navigation from './components/Navigation';
-
-import idleBanner from "./images/idleBanner.png";
 
 // Import page as a module before adding to the `Routes` below.
 import Home from "./pages/Home";
@@ -35,6 +33,7 @@ function App() {
     const updateStatus = (status) => {
       setFullScreenStatus(status);
     }
+    let navigate = useNavigate();
 
   //   useEffect(() => {
   //   const isFull = document.fullscreenElement;
@@ -61,19 +60,19 @@ function App() {
     function updateIdle() {
         // your function for too long inactivity goes here
         setIdleStatus(true);
-        console.log('idle');
     }
 
     function resetTimer() {
         clearTimeout(timer);
         setIdleStatus(false);
-        timer = setTimeout(updateIdle, 10000);  // time is in milliseconds
+        timer = setTimeout(updateIdle, 135000);  // time is in milliseconds
     }
   }
-
+  
   useEffect(() => {
-    idleListener()
-  }, [])
+    idleListener();
+    navigate("/", { replace: true })
+  }, [idleStatus])
   
 
   return (
@@ -81,7 +80,7 @@ function App() {
     {!fullScreenStatus ?
       <SplashScreen fullScreenStatus={fullScreenStatus} updateStatusFullScreen={updateStatus} />
       : 
-      <div className="App">
+      <div className="App relative">
         <Navigation />
         <Routes>
           {/* Add pages here */}
@@ -92,11 +91,6 @@ function App() {
           <Route path="EasyCocktails" element={<EasyCocktails />} />
           <Route path="Sustainability" element={<Sustainability />} />
         </Routes>
-        {idleStatus ?
-          <div className="absolute w-full h-full animate__animated animate__fadeIn" style={{background: 'rgba(100, 100, 100, 0.5)'}}>
-            <img src={idleBanner} alt="Tap Screen to Discover More" />
-          </div>
-        : ''}
       </div>
     }
     </>

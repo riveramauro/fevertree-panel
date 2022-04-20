@@ -12,7 +12,6 @@ export function VideoModal({ visible, video = '', updateVisibility }) {
   return (
     (visibility ?
       <div
-        // className="w-full h-full absolute top-0 left-0 bg-slate-900 bg-opacity-75 animate__animated animate__fadeIn animate__fast"
         className={`w-full h-full absolute top-0 left-0 bg-slate-900 bg-opacity-75 animate__animated animate__fast ${videoFade ? 'animate__fadeIn' : 'animate__fadeOut'}`}
         onClick={() => {
           setVideoFade(false);
@@ -22,7 +21,7 @@ export function VideoModal({ visible, video = '', updateVisibility }) {
           }, 2000);
         }}
       >
-        <div className="h-5/6 inline-block mt-20">
+        <div className="h-5/6 inline-block mt-12">
           <video className="h-full" src={video} muted autoPlay
             onEnded={() => {
               setTimeout(() => {
