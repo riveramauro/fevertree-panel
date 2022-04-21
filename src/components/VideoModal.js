@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 
 export function VideoModal({ visible, video = '', updateVisibility }) {
 
-  const [visibility, setVisibility] = useState(visible);
+  const [visibility, setVisibility] = useState(null);
   const [videoFade, setVideoFade] = useState(true);
 
   useEffect(() => {
     setVisibility(visible);
+    return () => {
+      setVisibility(null);
+    }
   }, [visible]);
 
   return (

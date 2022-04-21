@@ -34,6 +34,11 @@ import RosemaryVideo from "../videos/Ingredients/Rosemary_Spain.mp4";
 import TahitianVideo from "../videos/Ingredients/TahtitianLime_Yuzu.mp4";
 import ThymeVideo from "../videos/Ingredients/LemonThyme_Provence.mp4";
 
+const animationRandomizer = (num) => {
+  let t = Math.floor(Math.random() * num) + 1;
+  return t;
+}
+
 const Ingredients = [
   {
     link: '',
@@ -43,7 +48,7 @@ const Ingredients = [
       width: '112px',
       top: '330px',
       left: '173px',
-      animationDelay: 'calc(var(--animate-delay) * 1)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: BitterVideo,
   },
@@ -55,7 +60,7 @@ const Ingredients = [
       width: '105px',
       top: '495px',
       left: '173px',
-      animationDelay: 'calc(var(--animate-delay) * 2)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: TahitianVideo,
   },
@@ -67,7 +72,7 @@ const Ingredients = [
       width: '127px',
       top: '327px',
       left: '383px',
-      animationDelay: 'calc(var(--animate-delay) * 3)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: PinkVideo,
   },
@@ -79,7 +84,7 @@ const Ingredients = [
       width: '124px',
       top: '593px',
       left: '378px',
-      animationDelay: 'calc(var(--animate-delay) * 4)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: KolaVideo,
   },
@@ -91,7 +96,7 @@ const Ingredients = [
       width: '70px',
       top: '768px',
       left: '433px',
-      animationDelay: 'calc(var(--animate-delay) * 5)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: KolaVideo,
   },
@@ -103,7 +108,7 @@ const Ingredients = [
       width: '78px',
       top: '338px',
       left: '678px',
-      animationDelay: 'calc(var(--animate-delay) * 6)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: LemonVideo,
   },
@@ -115,7 +120,7 @@ const Ingredients = [
       width: '151px',
       top: '463px',
       left: '703px',
-      animationDelay: 'calc(var(--animate-delay) * 7)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: GingerVideo,
   },
@@ -127,7 +132,7 @@ const Ingredients = [
       width: '102px',
       top: '258px',
       left: '758px',
-      animationDelay: 'calc(var(--animate-delay) * 8)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: RosemaryVideo,
   },
@@ -139,7 +144,7 @@ const Ingredients = [
       width: '159px',
       top: '733px',
       left: '820px',
-      animationDelay: 'calc(var(--animate-delay) * 9)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: QuinineVideo,
   },
@@ -151,7 +156,7 @@ const Ingredients = [
       width: '102px',
       top: '47px',
       left: '855px',
-      animationDelay: 'calc(var(--animate-delay) * 10)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: ElderVideo,
   },
@@ -163,7 +168,7 @@ const Ingredients = [
       width: '110px',
       top: '458px',
       left: '974px',
-      animationDelay: 'calc(var(--animate-delay) * 11)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: GingerVideo,
   },
@@ -175,7 +180,7 @@ const Ingredients = [
       width: '115px',
       top: '230px',
       left: '1104px',
-      animationDelay: 'calc(var(--animate-delay) * 12)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: ThymeVideo,
   },
@@ -187,7 +192,7 @@ const Ingredients = [
       width: '164px',
       top: '325px',
       left: '1194px',
-      animationDelay: 'calc(var(--animate-delay) * 13)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: GingerVideo,
   },
@@ -199,7 +204,7 @@ const Ingredients = [
       width: '133px',
       top: '745px',
       left: '1120px',
-      animationDelay: 'calc(var(--animate-delay) * 14)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: KolaVideo,
   },
@@ -211,7 +216,7 @@ const Ingredients = [
       width: '127px',
       top: '411px',
       left: '1604px',
-      animationDelay: 'calc(var(--animate-delay) * 15)'
+      animationDelay: `calc(var(--animate-delay) * ${animationRandomizer(10)})`
     },
     video: TahitianVideo
   },
@@ -228,27 +233,30 @@ function Home() {
   }
 
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       setIntervalAnimation(!intervalAnimation)
-    }, 16000);
-  }, [intervalAnimation]);
-  
+    }, 11000);
+    return () => {
+      clearInterval(timer);
+    }
+  }); 
+
   return (
     <div className="relative h-full flex justify-center align-middle animate__animated animate__fadeIn animate__slow">
       <img src={map} alt="Map" style={{width: '1640px'}} />
       {Ingredients.map((ingredient) => (
-        <div
-          key={ingredient.name}
-          className={`absolute cursor-pointer animate__animated ${(intervalAnimation) ? 'animate__pulse' : ''}`}
-          style={ingredient.css}
-          onClick={() => {
-            setViewModal(true);
-            setModalVideo(ingredient.video);
-          }}
-          >
-          <img src={ingredient.image} alt="" />
-        </div>
-      ))}
+          <div
+            key={ingredient.name}
+            className={`absolute cursor-pointer animate__animated ${(intervalAnimation) ? 'animate__pulse' : ''}`}
+            style={ingredient.css}
+            onClick={() => {
+              setViewModal(true);
+              setModalVideo(ingredient.video);
+            }}
+            >
+            <img src={ingredient.image} alt={ingredient.name} />
+          </div>
+        ))}
       <div className="absolute bottom-0 left-0">
         <img src={idleBanner} alt="Tap Screen to Discover More" />
       </div>
