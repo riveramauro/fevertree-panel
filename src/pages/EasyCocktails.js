@@ -23,7 +23,7 @@ function EasyCocktails() {
         style={{ bottom: 0, left: 0 }}
         onClick={() => {
           setViewModal(true);
-          setModalVideo(limeVideo);
+          setModalVideo(easyVideo);
         }}
         >
       </div>
@@ -32,7 +32,7 @@ function EasyCocktails() {
         style={{ top: 0, left: 478 }}
         onClick={() => {
           setViewModal(true);
-          setModalVideo(easyVideo);
+          setModalVideo(limeVideo);
         }}
         >
       </div>
